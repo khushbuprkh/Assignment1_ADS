@@ -1,0 +1,11 @@
+ {
+  "state": "FL",
+  "team": 9,
+  "StationId":"12832",
+  "basedata_links": [
+"https://www.ncei.noaa.gov/orders/cdo/995475.csv"],
+  "link": "https://www.ncei.noaa.gov/orders/cdo/1000169.csv",
+  "AWSAccess":"",
+  "AWSSecret":"",
+  "notificationEmail":"test@test.com"
+}

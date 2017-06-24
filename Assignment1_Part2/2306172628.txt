@@ -1,0 +1,10 @@
+[2017-06-23 19:26:29.452000] : Import Done
+[2017-06-23 19:26:29.874000] : Raw Data Link from config file: FL_230617_12832.csv
+[2017-06-23 19:26:29.874000] : Clean Data Link from config file: clean data s3 link
+[2017-06-23 19:26:32.804000] : File exists.
+[2017-06-23 19:26:33.232000] : FL_230617_12832.csv has been uploaded to 9flassignment1
+[2017-06-23 19:26:33.232000] : File downloaded from S3 bucket.
+[2017-06-23 19:26:33.368000] : Step 2 Loading CSV File Done
+[2017-06-23 19:26:34.916000] : Sky Condition
+[2017-06-23 19:26:37.245000] : Functions Defined
+[2017-06-23 19:26:41.262000] : Interpolation of data done

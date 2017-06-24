@@ -1,0 +1,8 @@
+[2017-06-23 19:25:00.362000] : Import Done
+[2017-06-23 19:25:01.859000] : Raw Data Link from config file: FL_230617_12832.csv
+[2017-06-23 19:25:01.860000] : Clean Data Link from config file: clean data s3 link
+[2017-06-23 19:25:16.680000] : File found on Local
+[2017-06-23 19:25:34.809000] : Step 2 Loading CSV File Done
+[2017-06-23 19:25:36.769000] : Sky Condition
+[2017-06-23 19:25:36.791000] : Functions Defined
+[2017-06-23 19:25:44.537000] : Interpolation of data done
