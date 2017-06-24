@@ -1,0 +1,10 @@
+[2017-06-24 00:27:27.449000] : Import Done
+[2017-06-24 00:27:27.450000] : Raw Data Link from config file: FL_230617_12832.csv
+[2017-06-24 00:27:27.450000] : Clean Data Link from config file: clean data s3 link
+[2017-06-24 00:27:29.147000] : File found on Local
+[2017-06-24 00:27:42.212000] : Step 2 Loading CSV File Done
+[2017-06-24 00:27:44.026000] : Sky Condition
+[2017-06-24 00:27:44.026000] : Functions Defined
+[2017-06-24 00:27:51.054000] : Interpolation of data done
+[2017-06-24 00:28:04.619000] : S3 bucket has been successfully created.
+[2017-06-24 00:28:09.166000] : File already exists.

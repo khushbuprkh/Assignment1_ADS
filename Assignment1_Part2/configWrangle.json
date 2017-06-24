@@ -4,7 +4,7 @@
   "StationId":"12832",
   "rawData": "FL_230617_12832.csv",
   "cleanData": "clean data s3 link",
-  "AWSAccess":"",
-  "AWSSecret":"",
+   "AWSAccess":"AKIAJP35VVCYTDJCBQEQ",
+  "AWSSecret":"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",
   "notificationEmail":"test@test.com"
 }

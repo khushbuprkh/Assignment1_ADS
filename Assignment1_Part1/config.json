@@ -5,7 +5,7 @@
   "basedata_links": [
 "https://www.ncei.noaa.gov/orders/cdo/995475.csv"],
   "link": "https://www.ncei.noaa.gov/orders/cdo/1000169.csv",
-  "AWSAccess":"",
-  "AWSSecret":"",
+  "AWSAccess":"AKIAJP35VVCYTDJCBQEQ",
+  "AWSSecret":"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",
   "notificationEmail":"test@test.com"
 }

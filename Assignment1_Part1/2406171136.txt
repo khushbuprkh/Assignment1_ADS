@@ -1,0 +1,2 @@
+[2017-06-24 00:11:36.718000] : Link from config file: https://www.ncei.noaa.gov/orders/cdo/1000169.csv
+[2017-06-24 00:11:36.719000] : S3 bucket has been successfully created.
