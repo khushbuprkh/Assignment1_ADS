@@ -1,0 +1,2 @@
+[2017-07-04 21:13:06.597000] : Import Done
+[2017-07-04 21:13:07.646000] : Raw Data Link from config file: clean data s3 link

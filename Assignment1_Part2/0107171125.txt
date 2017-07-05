@@ -1,0 +1,35 @@
+[2017-07-01 11:11:27.358000] : Import Done
+[2017-07-01 11:11:27.947000] : Raw Data Link from config file: FL_230617_12832.csv
+[2017-07-01 11:11:27.948000] : Clean Data Link from config file: clean data s3 link
+[2017-07-01 11:12:23.108000] : File found on Local
+[2017-07-01 11:12:38.595000] : Step 2 Loading CSV File Done
+[2017-07-01 11:12:50.241000] : Sky Condition
+[2017-07-01 11:12:52.414000] : Functions Defined
+[2017-07-01 11:13:04.501000] : Interpolation of data done
+[2017-07-01 11:13:30.010000] : S3 bucket has been successfully created.
+[2017-07-01 11:13:35.369000] : File already exists.
+[2017-07-01 11:14:40.758000] : S3 bucket has been successfully created.
+[2017-07-01 11:15:00.756000] : S3 bucket has been successfully created.
+[2017-07-01 11:15:04.777000] : File already exists.
+[2017-07-01 11:15:30.244000] : S3 bucket has been successfully created.
+[2017-07-01 11:15:34.167000] : File already exists.
+[2017-07-01 11:16:12.582000] : S3 bucket has been successfully created.
+[2017-07-01 11:16:16.291000] : File already exists.
+[2017-07-01 11:16:30.942000] : S3 bucket has been successfully created.
+[2017-07-01 11:16:34.773000] : File already exists.
+[2017-07-01 11:23:50.521000] : S3 bucket has been successfully created.
+[2017-07-01 11:23:54.252000] : File already exists.
+[2017-07-01 11:24:23.580000] : S3 bucket has been successfully created.
+[2017-07-01 11:24:27.380000] : File already exists.
+[2017-07-01 11:28:08.527000] : S3 bucket has been successfully created.
+[2017-07-01 11:28:12.078000] : File already exists.
+[2017-07-01 11:29:01.758000] : S3 bucket has been successfully created.
+[2017-07-01 11:29:05.631000] : File already exists.
+[2017-07-01 11:38:30.584000] : S3 bucket has been successfully created.
+[2017-07-01 11:38:35.488000] : File already exists.
+[2017-07-01 11:40:04.417000] : S3 bucket has been successfully created.
+[2017-07-01 11:40:07.904000] : File already exists.
+[2017-07-01 11:40:57.667000] : S3 bucket has been successfully created.
+[2017-07-01 11:41:01.039000] : File already exists.
+[2017-07-01 11:41:29.446000] : S3 bucket has been successfully created.
+[2017-07-01 11:41:32.771000] : File already exists.

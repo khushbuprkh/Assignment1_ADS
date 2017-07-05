@@ -16,7 +16,7 @@ RUN apt-get install -y python python-dev python-distribute python-pip
 RUN pip install --upgrade pip
 RUN pip install numpy
 RUN pip install pandas
-RUN pip install ipython
+RUN pip install jupyter
 RUN pip install boto3
 RUN pip install -U boto
 RUN pip install bokeh
@@ -25,7 +25,6 @@ RUN pip install scipy
 ADD run.sh run.sh
 ADD 2306175529.txt 2306175529.txt
 ADD FL_230617_12832.csv FL_230617_12832.csv
-ADD FL_230617_12832_clean.csv FL_230617_12832_clean.csv
 ADD configWrangle.json configWrangle.json
 ADD wrangle.py wrangle.py
 ADD Makefile Makefile

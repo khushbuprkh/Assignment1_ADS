@@ -3,9 +3,9 @@
   "team": 9,
   "StationId":"12832",
   "basedata_links": [
-"https://www.ncei.noaa.gov/orders/cdo/995475.csv"],
-  "link": "https://www.ncei.noaa.gov/orders/cdo/1000169.csv",
-  "AWSAccess":"AKIAJP35VVCYTDJCBQEQ",
-  "AWSSecret":"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",
-  "notificationEmail":"test@test.com"
+"https://www.ncei.noaa.gov/orders/cdo/1009725.csv"],
+  "link": "FL_230617_12832.csv",
+  "AWSAccess":"AKIAIBFJOEIBO63CKYHQ",
+  "AWSSecret":"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",
+  "notificationEmail":""
 }

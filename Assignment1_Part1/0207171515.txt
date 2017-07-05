@@ -1,0 +1,2 @@
+[2017-07-02 23:15:16.024000] : Import Done
+[2017-07-02 23:16:52.821000] : Raw Data Link from config file: https://www.ncei.noaa.gov/orders/cdo/1009723.csv

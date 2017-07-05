@@ -1,0 +1,3 @@
+[2017-07-02 23:18:52.094000] : Import Done
+[2017-07-02 23:18:53.619000] : Raw Data Link from config file: FL_230617_12832.csv
+[2017-07-02 23:18:59.130000] : File found on Local

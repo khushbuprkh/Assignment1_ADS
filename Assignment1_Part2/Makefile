@@ -1,5 +1,2 @@
-cleanDataEda: dataWranglingTask
-	ipython notebook ./cleanDataEDA.ipynb 998702.csv
-
-dataWranglingTask: 
+wranglingTask: 
 	python wrangle.py configWrangle.json

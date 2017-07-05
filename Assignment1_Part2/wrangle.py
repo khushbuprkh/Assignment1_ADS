@@ -8,7 +8,7 @@
 
 # ## 1.Importing all the packages, modules
 
-# In[65]:
+# In[51]:
 
 import pandas as pd
 import numpy as np
@@ -32,7 +32,7 @@ tempFullDataList =[]
 tempSODDataList =[]
 
 
-# In[66]:
+# In[52]:
 
 #fetching the timestamp
 ts = time.time()
@@ -40,7 +40,7 @@ st = datetime.datetime.fromtimestamp(ts).strftime('%d%m%y%M%S')
 st1 = datetime.datetime.fromtimestamp(ts).strftime('%d%m%y')
 
 
-# In[67]:
+# In[53]:
 
 # Create logfile.
 logfile = open(st+".txt", "a")
@@ -54,7 +54,7 @@ def log_entry(s):
 log_entry("Import Done")
 
 
-# In[50]:
+# In[54]:
 
 with open('configWrangle.json') as data_file:    
     configdata = json.load(data_file)
@@ -64,7 +64,7 @@ raw_link=configdata["rawData"]
 clean_link=configdata["cleanData"]
 
 
-# In[51]:
+# In[55]:
 
 # connect to AWS
 AWS_ACCESS_KEY_ID = configdata["AWSAccess"]
@@ -76,14 +76,14 @@ conn = boto.connect_s3(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
 s3 = boto3.resource('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
 
-# In[52]:
+# In[56]:
 
 #check for raw data file  on local 
 status= os.path.exists(raw_link)
 print status  
 
 
-# In[53]:
+# In[57]:
 
 #if file exists get file form the local
 if status==True:
@@ -129,7 +129,7 @@ elif status==False:
 
 # ## 2.Loading CSV File from the Config file Link 
 
-# In[54]:
+# In[58]:
 
 #file= "https://www.ncei.noaa.gov/orders/cdo/996279.csv"
 #file1='998702.csv'
@@ -152,7 +152,7 @@ log_entry("Step 2 Loading CSV File Done")
 # ## Filling the SkyCondition Data
 # <h4>A. We are filling the missing value with the value present in the previous hour , as it is the most approximate sky condition </h4>
 
-# In[55]:
+# In[59]:
 
 def missingSkyConditionData():
 	for i in range(len(tempFullDataList)):
@@ -181,7 +181,7 @@ log_entry("Sky Condition")
 
 # <h4>Defining the Functions </h4>
 
-# In[56]:
+# In[60]:
 
 def removeAlphabetsAndInterpolate(specificColumn):
     non = re.compile(r'[^\d.+-]+')
@@ -214,7 +214,7 @@ log_entry("Functions Defined")
 
 # ## Moving Hourly Data seperately to analyse
 
-# In[57]:
+# In[61]:
 
 def removeJunk():
     dataf = pd.DataFrame(tempFullDataList)
@@ -250,7 +250,7 @@ dataHours
     
 
 
-# In[58]:
+# In[62]:
 
 
 # def interpolateMissingData():
@@ -305,7 +305,7 @@ dataHours
 
 # <h4>Moving SOD Data  to seperate DataFrame to analyse</H4>
 
-# In[59]:
+# In[63]:
 
 def interpolateMissingSODData():
     dataf = pd.DataFrame(tempSODDataList)
@@ -331,7 +331,7 @@ log_entry("Interpolation of data done")
 
 # ## Extracting the Monthly Data Seperately to analyse
 
-# In[60]:
+# In[64]:
 
 temp = a["DATE"]
 from calendar import monthrange
@@ -352,7 +352,7 @@ monthData =pd.DataFrame(tempSODMonthlyDataList)
 
 # ### Interpolating the missing data : Removing the junks (alphabets) present at the end of the number  
 
-# In[61]:
+# In[65]:
 
 def interpolateMissingSODMonthlyData():
     mdataf = pd.DataFrame(tempSODMonthlyDataList)
@@ -379,7 +379,7 @@ monthWiseData = interpolateMissingSODMonthlyData()
 
 # ## Dividing Clouds Formation Data in various Category 
 
-# In[62]:
+# In[66]:
 
 def divideInTypes():
 	types = {'SCT':{},'BKN':{},'OVC':{},'VV':{},'10':{},'FEW':{},'CLR':{}}
@@ -405,7 +405,7 @@ def divideInTypes():
 # <p>6:00AM  - 11:59AM-</p>
 #  
 
-# In[63]:
+# In[67]:
 
 def getByTimeSlots():
     tempDic = {'slot1':[], 'slot2':[],'slot3':[],'slot4':[]}
@@ -455,7 +455,7 @@ seasonsExploration(getByTimeSlots())
 #   
 
 
-# In[64]:
+# In[75]:
 
 # uploading Clean data to s3 bucket 
 bucket_name = str(TeamNumber) + configdata["state"].lower() + 'assignment1_clean'
@@ -471,6 +471,11 @@ dataHours.to_csv(filename_clean_data+".csv")
 s3 = boto3.resource('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 file = filename_clean_data+".csv"
 exists = False
+s3Session = boto3.Session(
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+    region_name='us-east-1'
+)
 
 try:
     s3.Object(bucket_name, file).load()
@@ -491,11 +496,52 @@ if exists==False:
     k.key = file
     k.set_contents_from_filename(file, cb=percent_cb, num_cb=10)
     log_entry(file+" has been uploaded to "+bucket_name)
+    bucket_policy = s3.BucketPolicy(bucket_name)
     print("File uploaded.")
+    dataDownloadLink = s3Session.client('s3').generate_presigned_url(
+    ClientMethod='get_object',
+    Params={
+        'Bucket': bucket_name,
+        'Key': file})
+
     
 elif exists==True:
     print("File already exists.")
     log_entry("File already exists.")
+    s3.Object(bucket_name, file).put(Body=open(file, 'rb'))
+    s3.Object(bucket_name, file).Acl().put(ACL='public-read')
+    dataDownloadLink = s3Session.client('s3').generate_presigned_url(
+    ClientMethod='get_object',
+    Params={
+        'Bucket': bucket_name,
+        'Key': file})
+
+# In[77]:
+
+try:
+    s3Session.client('ses').send_email(
+        Destination={
+            'ToAddresses': [configdata["notificationEmail"]]
+        },
+        Message={
+          'Body': {
+              'Text': {
+                  'Data': dataDownloadLink
+              }
+          },
+          'Subject': {
+              'Data': "File to Download"
+          }
+        },
+        Source=configdata["notificationEmail"]
+    )
+except Exception as e:
+    print(e)
+
+
+# In[ ]:
+
+
 
 
 # In[ ]:
